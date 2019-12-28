@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { connect } from 'react-redux';
+import { getUpcomingVideo } from '../../../redux/actions/videoActions';
 
 import VideoCard from '../video-card/VideoCard';
 import './VideoHeaderSlideShow.scss';
 
-const VideoHeaderSlideShow = () => {
+const VideoHeaderSlideShow = props => {
+  const { upcomingVideo, getUpcomingVideo } = props;
+  console.log(props);
+
+  useEffect(() => {
+    getUpcomingVideo();
+  }, []);
+
   const settings = {
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 6000,
     waitForAnimate: true,
     dots: true,
     infinite: true,
@@ -21,22 +30,29 @@ const VideoHeaderSlideShow = () => {
   return (
     <div className='video-header-slide-show'>
       <Slider {...settings}>
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+        {upcomingVideo !== null &&
+          upcomingVideo.map(video => (
+            <VideoCard
+              key={video.id}
+              imageUrl={video.poster_path}
+              videoHeaderTitle={video.title}
+              videoHeader={true}
+            />
+          ))}
       </Slider>
     </div>
   );
 };
 
-export default VideoHeaderSlideShow;
+const mapDispatchToProps = dispatch => ({
+  getUpcomingVideo: () => dispatch(getUpcomingVideo())
+});
+
+const mapStateToProps = state => ({
+  upcomingVideo: state.video.upcomingVideo
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideoHeaderSlideShow);

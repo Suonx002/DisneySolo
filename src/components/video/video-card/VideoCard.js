@@ -2,12 +2,18 @@ import React from 'react';
 
 import './VideoCard.scss';
 
-const VideoCard = () => {
+const VideoCard = props => {
+  const { imageUrl } = props;
+
+  const originalUrl = 'https://image.tmdb.org/t/p/original';
   return (
-    <div className='video-card'>
+    <div className={`video-card ${props.videoHeader ? 'video-header' : null}`}>
+      {props.videoHeaderTitle ? (
+        <h2 className='video-header-title'>{props.videoHeaderTitle}</h2>
+      ) : null}
       <a href='#!'>
         <img
-          src='https://images.pexels.com/photos/1303094/pexels-photo-1303094.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+          src={`${originalUrl}${imageUrl}`}
           alt='image-testing'
           className='video-card-image'
         />
