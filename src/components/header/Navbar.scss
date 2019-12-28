@@ -1,0 +1,34 @@
+.navbar {
+  &-header {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+  }
+  &-logo {
+    width: 10%;
+  }
+
+  &-content {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-item,
+  &-logo,
+  &-account {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+  }
+
+  &-item {
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+  &-pages {
+    display: flex;
+  }
+}

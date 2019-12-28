@@ -1,0 +1,35 @@
+.slick-dots li button::before {
+  font-size: 8px;
+  color: #eee;
+  opacity: 0.7;
+}
+
+.slick-dots li.slick-active button::before {
+  color: black;
+  opacity: 1;
+}
+
+.slick-slide {
+  padding: 1rem 8px;
+}
+
+.slides .slick-prev,
+.slides .slick-next {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+}
+
+.dotsClass {
+  color: #fff;
+}
+
+.video-grid {
+  &-container {
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  &-title {
+    padding: 0 1rem;
+  }
+}
