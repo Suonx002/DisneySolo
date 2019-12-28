@@ -1,8 +1,15 @@
-import { GET_UPCOMING_VIDEOS, GET_POPULAR_VIDEOS } from '../actions/types';
+import {
+  GET_UPCOMING_VIDEOS,
+  GET_POPULAR_VIDEOS,
+  GET_NOW_PLAYING_VIDEOS,
+  GET_TOP_RATED_VIDEOS
+} from '../actions/types';
 
 const INITIAL_STATE = {
   upcomingVideo: null,
-  popularVideo: null
+  popularVideo: null,
+  nowPlayingVideo: null,
+  topRatedVideo: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,6 +23,17 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         popularVideo: action.payload
+      };
+    case GET_NOW_PLAYING_VIDEOS:
+      return {
+        ...state,
+        nowPlayingVideo: action.payload
+      };
+
+    case GET_TOP_RATED_VIDEOS:
+      return {
+        ...state,
+        nowPlayingVideo: action.payload
       };
     default:
       return state;

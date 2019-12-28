@@ -2,26 +2,46 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { getPopularVideos } from '../redux/actions/videoActions';
-import { selectPopularVideoItem } from '../redux/reselector/getPopularVideoSelector';
+import {
+  getPopularVideos,
+  getNowPlayingVideos,
+  getTopRatedVideos
+} from '../redux/actions/videoActions';
+import {
+  selectPopularVideoItem,
+  selectNowPlayingVideoItem,
+  selectTopRatedVideoItem
+} from '../redux/reselector/videoSelectors';
 
 import Navbar from '../components/header/Navbar';
 import VideoHeaderSlideShow from '../components/video/video-header-slideshow/VideoHeaderSlideShow';
 import VideoCategory from '../components/video/video-category/VideoCategory';
 import VideoGrid from '../components/video/video-grid/VideoGrid';
-import VideoCard from '../components/video/video-card/VideoCard';
 
 import './HomePage.scss';
 
 const HomePage = props => {
-  const { getPopularVideo, popularVideo } = props;
+  const {
+    getPopularVideos,
+    popularVideos,
+    getNowPlayingVideos,
+    nowPlayingVideos,
+    getTopRatedVideos,
+    topRatedVideos
+  } = props;
 
   useEffect(() => {
-    getPopularVideo();
+    getPopularVideos();
+    getNowPlayingVideos();
+    getTopRatedVideos();
     //eslint-disable-next-line
   }, []);
 
-  if (popularVideo === null) {
+  if (
+    popularVideos === null ||
+    nowPlayingVideos === null ||
+    topRatedVideos === null
+  ) {
     return <h1>Add loading later</h1>;
   }
 
@@ -31,24 +51,24 @@ const HomePage = props => {
       <div className='homepage-container'>
         <VideoHeaderSlideShow />
         <VideoCategory />
-        <VideoGrid title='Most Popular' videos={popularVideo} />
-        <VideoGrid title='Most Popular' videos={popularVideo} />
-        <VideoGrid title='Most Popular' videos={popularVideo} />
-        <VideoGrid title='Most Popular' videos={popularVideo} />
+        <VideoGrid title='Now Playing' videos={nowPlayingVideos} />
+        <VideoGrid title='Most Popular' videos={popularVideos} />
+        <VideoGrid title='Top Rated' videos={topRatedVideos} />
       </div>
     </>
   );
 };
 
 const mapDispatchToProps = dispatch => ({
-  getPopularVideo: () => dispatch(getPopularVideos())
+  getPopularVideos: () => dispatch(getPopularVideos()),
+  getNowPlayingVideos: () => dispatch(getNowPlayingVideos()),
+  getTopRatedVideos: () => dispatch(getTopRatedVideos())
 });
 
 const mapStateToProps = createStructuredSelector({
-  popularVideo: selectPopularVideoItem
+  popularVideos: selectPopularVideoItem,
+  nowPlayingVideos: selectNowPlayingVideoItem,
+  topRatedVideos: selectTopRatedVideoItem
 });
-// const mapStateToProps = state => ({
-//   popularVideo: state.video.popularVideo
-// });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

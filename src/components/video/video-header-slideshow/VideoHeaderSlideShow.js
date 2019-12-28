@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { connect } from 'react-redux';
 
 import { getUpcomingVideos } from '../../../redux/actions/videoActions';
-import { selectUpcomingVideoItem } from '../../../redux/reselector/getUpcomingVideoSelector';
+import { selectUpcomingVideoItem } from '../../../redux/reselector/videoSelectors';
 
 import VideoCard from '../video-card/VideoCard';
 import './VideoHeaderSlideShow.scss';
