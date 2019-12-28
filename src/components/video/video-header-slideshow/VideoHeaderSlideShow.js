@@ -3,17 +3,19 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { connect } from 'react-redux';
-import { getUpcomingVideo } from '../../../redux/actions/videoActions';
+import { getUpcomingVideos } from '../../../redux/actions/videoActions';
 
 import VideoCard from '../video-card/VideoCard';
 import './VideoHeaderSlideShow.scss';
 
 const VideoHeaderSlideShow = props => {
-  const { upcomingVideo, getUpcomingVideo } = props;
-  console.log(props);
+  const { upcomingVideo, getUpcomingVideos } = props;
+  // console.log(props);
 
   useEffect(() => {
-    getUpcomingVideo();
+    getUpcomingVideos();
+
+    //eslint-disable-next-line
   }, []);
 
   const settings = {
@@ -34,8 +36,8 @@ const VideoHeaderSlideShow = props => {
           upcomingVideo.map(video => (
             <VideoCard
               key={video.id}
+              title={video.title}
               imageUrl={video.poster_path}
-              videoHeaderTitle={video.title}
               videoHeader={true}
             />
           ))}
@@ -45,7 +47,7 @@ const VideoHeaderSlideShow = props => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getUpcomingVideo: () => dispatch(getUpcomingVideo())
+  getUpcomingVideos: () => dispatch(getUpcomingVideos())
 });
 
 const mapStateToProps = state => ({

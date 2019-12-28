@@ -3,8 +3,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import VideoCard from '../video-card/VideoCard';
-
 import './VideoGrid.scss';
 
 const VideoGrid = props => {
@@ -65,20 +63,7 @@ const VideoGrid = props => {
   return (
     <div className='video-grid-container'>
       {renderTitle}
-      <Slider {...settings}>
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
-      </Slider>
+      <Slider {...settings}>{props.children}</Slider>
     </div>
   );
 };

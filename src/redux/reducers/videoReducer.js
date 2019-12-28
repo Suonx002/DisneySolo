@@ -1,7 +1,8 @@
-import { GET_UPCOMING_VIDEOS } from '../actions/types';
+import { GET_UPCOMING_VIDEOS, GET_POPULAR_VIDEOS } from '../actions/types';
 
 const INITIAL_STATE = {
-  upcomingVideo: null
+  upcomingVideo: null,
+  popularVideo: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -10,6 +11,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         upcomingVideo: action.payload
+      };
+    case GET_POPULAR_VIDEOS:
+      return {
+        ...state,
+        popularVideo: action.payload
       };
     default:
       return state;
