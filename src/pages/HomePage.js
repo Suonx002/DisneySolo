@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import { getPopularVideos } from '../redux/actions/videoActions';
+import { selectPopularVideoItem } from '../redux/reselector/getPopularVideoSelector';
 
 import Navbar from '../components/header/Navbar';
 import VideoHeaderSlideShow from '../components/video/video-header-slideshow/VideoHeaderSlideShow';
@@ -45,8 +47,11 @@ const mapDispatchToProps = dispatch => ({
   getPopularVideo: () => dispatch(getPopularVideos())
 });
 
-const mapStateToProps = state => ({
-  popularVideo: state.video.popularVideo
+const mapStateToProps = createStructuredSelector({
+  popularVideo: selectPopularVideoItem
 });
+// const mapStateToProps = state => ({
+//   popularVideo: state.video.popularVideo
+// });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

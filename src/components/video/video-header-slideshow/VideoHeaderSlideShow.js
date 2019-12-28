@@ -3,7 +3,9 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { connect } from 'react-redux';
+
 import { getUpcomingVideos } from '../../../redux/actions/videoActions';
+import { selectUpcomingVideoItem } from '../../../redux/reselector/getUpcomingVideoSelector';
 
 import VideoCard from '../video-card/VideoCard';
 import './VideoHeaderSlideShow.scss';
@@ -51,7 +53,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-  upcomingVideo: state.video.upcomingVideo
+  upcomingVideo: selectUpcomingVideoItem(state)
 });
 
 export default connect(
