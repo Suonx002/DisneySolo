@@ -6,12 +6,27 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+}
+
 body {
   background-color: #161722;
   color: #fff;
   line-height: 1.5;
   height: 100vh;
   font-family: Nunito, sans-serif;
+}
+
+/* React slick  */
+.dotsClass {
+  color: #fff;
 }
 
 .slick-dots li button::before {
@@ -53,14 +68,47 @@ body {
 }
 
 .slick-arrow.slick-prev {
-  left: 14px;
+  left: 5px;
 }
 
 .slick-arrow.slick-next {
-  right: 14px;
+  right: 5px;
 }
 
 .slick-arrow.slick-prev:hover,
 .slick-arrow.slick-next:hover {
   opacity: 0.75;
+}
+
+@media screen and (min-width: 501px) {
+  .slick-arrow.slick-prev {
+    padding-right: 3rem;
+    padding-left: 1rem;
+  }
+  .slick-arrow.slick-next {
+    padding-right: 2.3rem;
+    padding-left: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .slick-arrow.slick-prev,
+  .slick-arrow.slick-next {
+    opacity: 1;
+  }
+
+  .slick-arrow.slick-next {
+    padding-right: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .slick-arrow.slick-prev {
+    padding-right: 3rem;
+    padding-left: 1rem;
+  }
+
+  .slick-arrow.slick-prev:hover,
+  .slick-arrow.slick-next:hover {
+    opacity: 0.99;
+  }
 }

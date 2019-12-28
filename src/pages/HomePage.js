@@ -21,23 +21,20 @@ const HomePage = props => {
     //eslint-disable-next-line
   }, []);
 
+  if (popularVideo === null) {
+    return <h1>Add loading later</h1>;
+  }
+
   return (
     <>
       <Navbar />
       <div className='homepage-container'>
         <VideoHeaderSlideShow />
         <VideoCategory />
-        {popularVideo !== null && (
-          <VideoGrid title='Most Popular'>
-            {popularVideo.map(video => (
-              <VideoCard
-                key={video.id}
-                imageUrl={video.poster_path}
-                title={video.title}
-              />
-            ))}
-          </VideoGrid>
-        )}
+        <VideoGrid title='Most Popular' videos={popularVideo} />
+        <VideoGrid title='Most Popular' videos={popularVideo} />
+        <VideoGrid title='Most Popular' videos={popularVideo} />
+        <VideoGrid title='Most Popular' videos={popularVideo} />
       </div>
     </>
   );

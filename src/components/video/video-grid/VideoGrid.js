@@ -3,11 +3,13 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import VideoCard from '../video-card/VideoCard';
 import './VideoGrid.scss';
 
 const VideoGrid = props => {
-  const renderTitle = props.title ? (
-    <h2 className='video-grid-title'>{props.title}</h2>
+  const { title, videos } = props;
+  const renderTitle = title ? (
+    <h2 className='video-grid-title'>{title}</h2>
   ) : null;
 
   const settings = {
@@ -54,7 +56,7 @@ const VideoGrid = props => {
           slidesToScroll: 1,
           speed: 500,
           infinite: true,
-          dots: true
+          dots: false
         }
       }
     ]
@@ -63,7 +65,16 @@ const VideoGrid = props => {
   return (
     <div className='video-grid-container'>
       {renderTitle}
-      <Slider {...settings}>{props.children}</Slider>
+      <Slider {...settings}>
+        {videos.map(video => (
+          <VideoCard
+            key={video.id}
+            imageUrl={video.poster_path}
+            title={video.title}
+            gridHeader={true}
+          />
+        ))}
+      </Slider>
     </div>
   );
 };
