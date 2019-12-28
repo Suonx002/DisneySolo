@@ -9,22 +9,22 @@ const Navbar = () => {
       <div className='navbar-content'>
         <div className='navbar-pages'>
           <div className='navbar-item'>
-            <i class='fas fa-home' /> Home
+            <i className='fas fa-home' /> Home
           </div>
           <div className='navbar-item'>
-            <i class='fas fa-search' /> Search
+            <i className='fas fa-search' /> Search
           </div>
           <div className='navbar-item'>
-            <i class='fas fa-plus' /> WatchList
+            <i className='fas fa-plus' /> WatchList
           </div>
           <div className='navbar-item'>
-            <i class='fas fa-star' /> Originals
+            <i className='fas fa-star' /> Originals
           </div>
           <div className='navbar-item'>
-            <i class='fas fa-compact-disc' /> Movies
+            <i className='fas fa-compact-disc' /> Movies
           </div>
           <div className='navbar-item'>
-            <i class='fas fa-video' /> Series
+            <i className='fas fa-video' /> Series
           </div>
         </div>
         <div className='navbar-account'>Profile</div>
