@@ -29,12 +29,12 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         nowPlayingVideo: action.payload
       };
-
     case GET_TOP_RATED_VIDEOS:
       return {
         ...state,
-        nowPlayingVideo: action.payload
+        topRatedVideo: action.payload
       };
+
     default:
       return state;
   }

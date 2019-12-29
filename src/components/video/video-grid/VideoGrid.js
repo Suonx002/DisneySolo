@@ -66,14 +66,16 @@ const VideoGrid = props => {
     <div className='video-grid-container'>
       {renderTitle}
       <Slider {...settings}>
-        {videos.map(video => (
-          <VideoCard
-            key={video.id}
-            imageUrl={video.poster_path}
-            title={video.title}
-            gridHeader={true}
-          />
-        ))}
+        {videos !== null &&
+          videos !== undefined &&
+          videos.map(video => (
+            <VideoCard
+              key={video.id}
+              imageUrl={video.poster_path}
+              title={video.title}
+              gridHeader={true}
+            />
+          ))}
       </Slider>
     </div>
   );

@@ -7,6 +7,7 @@ import {
   getNowPlayingVideos,
   getTopRatedVideos
 } from '../redux/actions/videoActions';
+
 import {
   selectPopularVideoItem,
   selectNowPlayingVideoItem,
@@ -34,6 +35,7 @@ const HomePage = props => {
     getPopularVideos();
     getNowPlayingVideos();
     getTopRatedVideos();
+
     //eslint-disable-next-line
   }, []);
 
@@ -50,7 +52,7 @@ const HomePage = props => {
       <Navbar />
       <div className='homepage-container'>
         <VideoHeaderSlideShow />
-        <VideoCategory />
+        {/* <VideoCategory /> */}
         <VideoGrid title='Now Playing' videos={nowPlayingVideos} />
         <VideoGrid title='Most Popular' videos={popularVideos} />
         <VideoGrid title='Top Rated' videos={topRatedVideos} />

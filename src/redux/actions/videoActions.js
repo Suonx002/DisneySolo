@@ -3,7 +3,8 @@ import {
   GET_UPCOMING_VIDEOS,
   GET_POPULAR_VIDEOS,
   GET_NOW_PLAYING_VIDEOS,
-  GET_TOP_RATED_VIDEOS
+  GET_TOP_RATED_VIDEOS,
+  GET_LATEST_VIDEOS
 } from './types';
 
 const MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
@@ -28,7 +29,7 @@ export const getPopularVideos = () => async dispatch => {
       page: 2
     }
   });
-  console.log(response);
+  // console.log(response);
 
   dispatch({
     type: GET_POPULAR_VIDEOS,
@@ -56,7 +57,7 @@ export const getTopRatedVideos = () => async dispatch => {
   const response = await axios('https://api.themoviedb.org/3/movie/top_rated', {
     params: {
       api_key: MOVIE_KEY,
-      page: 3
+      page: 5
     }
   });
 

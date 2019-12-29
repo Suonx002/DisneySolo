@@ -25,6 +25,7 @@
   .video-grid-title {
     top: 5px;
     right: 0;
+    font-size: 1.1rem;
   }
 
   .video-header-title {
@@ -72,5 +73,15 @@
 @media screen and (min-width: 1500px) {
   .video-card {
     height: 325px;
+
+    .video-header-title {
+      font-size: 4rem;
+    }
+
+    .video-grid-title {
+      left: 0;
+      top: 30px;
+      font-size: 2rem;
+    }
   }
 }
