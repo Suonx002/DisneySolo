@@ -16,8 +16,10 @@ const VideoGrid = props => {
     dots: false,
     infinite: true,
     speed: 500,
+    centerMode: true,
+    centerPadding: '3%',
     slidesToShow: 5,
-    slidesToScroll: 5,
+
     responsive: [
       {
         breakpoint: 1300,
@@ -25,8 +27,7 @@ const VideoGrid = props => {
           slidesToShow: 4,
           slidesToScroll: 4,
           speed: 500,
-          infinite: true,
-          dots: false
+          infinite: true
         }
       },
       {
@@ -34,9 +35,7 @@ const VideoGrid = props => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          speed: 500,
-          infinite: true,
-          dots: false
+          speed: 500
         }
       },
       {
@@ -44,21 +43,9 @@ const VideoGrid = props => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          speed: 500,
-          infinite: true,
-          dots: false
+          speed: 500
         }
       }
-      // {
-      //   breakpoint: 500,
-      //   settings: {
-      //     slidesToShow: 1,
-      //     slidesToScroll: 1,
-      //     speed: 500,
-      //     infinite: true,
-      //     dots: false
-      //   }
-      // }
     ]
   };
 
