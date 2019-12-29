@@ -13,7 +13,7 @@ const VideoGrid = props => {
   ) : null;
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 5,
@@ -26,7 +26,7 @@ const VideoGrid = props => {
           slidesToScroll: 4,
           speed: 500,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
@@ -36,7 +36,7 @@ const VideoGrid = props => {
           slidesToScroll: 3,
           speed: 500,
           infinite: true,
-          dots: true
+          dots: false
         }
       },
       {
@@ -46,19 +46,19 @@ const VideoGrid = props => {
           slidesToScroll: 2,
           speed: 500,
           infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          speed: 500,
-          infinite: true,
           dots: false
         }
       }
+      // {
+      //   breakpoint: 500,
+      //   settings: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //     speed: 500,
+      //     infinite: true,
+      //     dots: false
+      //   }
+      // }
     ]
   };
 
@@ -74,6 +74,7 @@ const VideoGrid = props => {
               imageUrl={video.poster_path}
               title={video.title}
               gridHeader={true}
+              id={video.id}
             />
           ))}
       </Slider>

@@ -21,3 +21,8 @@ export const selectTopRatedVideoItem = createSelector(
   [selectVideo],
   video => video.topRatedVideo
 );
+
+export const selectSingleVideoItem = createSelector(
+  [selectVideo],
+  video => video.singleVideo
+);

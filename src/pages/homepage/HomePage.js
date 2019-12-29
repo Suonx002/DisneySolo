@@ -6,18 +6,17 @@ import {
   getPopularVideos,
   getNowPlayingVideos,
   getTopRatedVideos
-} from '../redux/actions/videoActions';
+} from '../../redux/actions/videoActions';
 
 import {
   selectPopularVideoItem,
   selectNowPlayingVideoItem,
   selectTopRatedVideoItem
-} from '../redux/reselector/videoSelectors';
+} from '../../redux/reselector/videoSelectors';
 
-import Navbar from '../components/header/Navbar';
-import VideoHeaderSlideShow from '../components/video/video-header-slideshow/VideoHeaderSlideShow';
-import VideoCategory from '../components/video/video-category/VideoCategory';
-import VideoGrid from '../components/video/video-grid/VideoGrid';
+import VideoHeaderSlideShow from '../../components/video/video-header-slideshow/VideoHeaderSlideShow';
+import VideoCategory from '../../components/video/video-category/VideoCategory';
+import VideoGrid from '../../components/video/video-grid/VideoGrid';
 
 import './HomePage.scss';
 
@@ -49,7 +48,6 @@ const HomePage = props => {
 
   return (
     <>
-      <Navbar />
       <div className='homepage-container'>
         <VideoHeaderSlideShow />
         {/* <VideoCategory /> */}

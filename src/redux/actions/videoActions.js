@@ -3,10 +3,18 @@ import {
   GET_UPCOMING_VIDEOS,
   GET_POPULAR_VIDEOS,
   GET_NOW_PLAYING_VIDEOS,
-  GET_TOP_RATED_VIDEOS
+  GET_TOP_RATED_VIDEOS,
+  GET_A_SINGLE_VIDEO,
+  GET_SINGLE_VIDEO
 } from './types';
 
-const MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
+let MOVIE_KEY;
+
+if (process.env.NODE_ENV === 'production') {
+  MOVIE_KEY = process.env.MOVIE_KEY;
+} else {
+  MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
+}
 
 export const getUpcomingVideos = () => async dispatch => {
   const response = await axios('https://api.themoviedb.org/3/movie/upcoming', {
@@ -63,5 +71,18 @@ export const getTopRatedVideos = () => async dispatch => {
   dispatch({
     type: GET_TOP_RATED_VIDEOS,
     payload: response.data.results
+  });
+};
+
+export const getSingleVideo = id => async dispatch => {
+  const response = await axios(`https://api.themoviedb.org/3/movie/${id}`, {
+    params: {
+      api_key: MOVIE_KEY
+    }
+  });
+
+  dispatch({
+    type: GET_SINGLE_VIDEO,
+    payload: response.data
   });
 };

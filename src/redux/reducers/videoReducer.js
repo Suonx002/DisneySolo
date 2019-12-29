@@ -2,14 +2,16 @@ import {
   GET_UPCOMING_VIDEOS,
   GET_POPULAR_VIDEOS,
   GET_NOW_PLAYING_VIDEOS,
-  GET_TOP_RATED_VIDEOS
+  GET_TOP_RATED_VIDEOS,
+  GET_SINGLE_VIDEO
 } from '../actions/types';
 
 const INITIAL_STATE = {
   upcomingVideo: null,
   popularVideo: null,
   nowPlayingVideo: null,
-  topRatedVideo: null
+  topRatedVideo: null,
+  singleVideo: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -33,6 +35,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         topRatedVideo: action.payload
+      };
+    case GET_SINGLE_VIDEO:
+      return {
+        ...state,
+        singleVideo: action.payload
       };
 
     default:

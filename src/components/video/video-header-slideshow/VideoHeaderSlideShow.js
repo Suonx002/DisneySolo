@@ -29,7 +29,9 @@ const VideoHeaderSlideShow = props => {
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '5%'
   };
   return (
     <div className='video-header-slide-show'>
@@ -41,6 +43,7 @@ const VideoHeaderSlideShow = props => {
               title={video.title}
               imageUrl={video.poster_path}
               videoHeader={true}
+              id={video.id}
             />
           ))}
       </Slider>

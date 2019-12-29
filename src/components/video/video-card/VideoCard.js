@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './VideoCard.scss';
 
 const VideoCard = props => {
-  const { imageUrl, title, videoHeader } = props;
+  const { imageUrl, title, videoHeader, id } = props;
 
   const originalUrl = videoHeader
-    ? 'https://image.tmdb.org/t/p/w780'
+    ? 'https://image.tmdb.org/t/p/w1280'
     : 'https://image.tmdb.org/t/p/w342';
 
   return (
@@ -16,13 +17,13 @@ const VideoCard = props => {
       ) : null}
 
       {props.gridHeader ? <h4 className='video-grid-title'>{title}</h4> : null}
-      <a href='#!'>
+      <Link to={`/video/${id}`}>
         <img
           src={`${originalUrl}${imageUrl}`}
           alt={props.title}
           className='video-card-image'
         />
-      </a>
+      </Link>
     </div>
   );
 };
