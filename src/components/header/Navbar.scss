@@ -4,6 +4,7 @@
     align-items: center;
     height: 10vh;
     width: 100%;
+    color: #f9f9f9;
   }
   &-logo {
     width: 10%;
@@ -24,10 +25,37 @@
   }
 
   &-item {
+    text-decoration: none;
+    color: #f9f9f9;
+    position: relative;
     i {
       margin-right: 0.5rem;
     }
+
+    //from codepen: https://codepen.io/iClusterDev-The-King/pen/NWKvwwm
+    .underline {
+      &::after {
+        content: '';
+        border-bottom: solid 1.5px #f9f9f9;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 65%;
+
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.25s;
+      }
+
+      &:hover {
+        &::after {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+    }
   }
+
   &-pages {
     display: flex;
   }
