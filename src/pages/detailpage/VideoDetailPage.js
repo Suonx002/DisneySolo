@@ -34,10 +34,10 @@ const VideoDetailPage = props => {
             <h1 className='video-detail-title'>{singleVideo.title}</h1>
             <div className='video-detail-actions'>
               <Link to='/watch/:id' className='video-detail-play-btn'>
-                <i class='fas fa-play' /> PLAY
+                <i className='fas fa-play' /> PLAY
               </Link>
               <Link to='/watchlater/:id' className='video-detail-play-btn'>
-                <i class='fas fa-plus-circle' />
+                <i className='fas fa-plus-circle' />
               </Link>
             </div>
           </div>

@@ -19,13 +19,18 @@ const VideoGrid = props => {
     centerMode: true,
     centerPadding: '3%',
     slidesToShow: 5,
+    // slidesToScroll: 5,
+
+    // focusOnSelect: true,
 
     responsive: [
       {
         breakpoint: 1300,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 4,
+          centerPadding: '4%',
+
+          // slidesToScroll: 4,
           speed: 500,
           infinite: true
         }
@@ -34,7 +39,8 @@ const VideoGrid = props => {
         breakpoint: 1000,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          centerPadding: '5%',
+          // slidesToScroll: 3,
           speed: 500
         }
       },
@@ -42,7 +48,9 @@ const VideoGrid = props => {
         breakpoint: 700,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          centerPadding: '6%',
+
+          // slidesToScroll: 2,
           speed: 500
         }
       }

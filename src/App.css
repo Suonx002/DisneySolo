@@ -24,33 +24,9 @@ body {
   font-family: Nunito, sans-serif;
 }
 
-/* React slick  */
-/* .dotsClass {
-  color: #fff;
-} */
-
-/* .slick-dots li button::before {
-  font-size: 8px;
-  color: #eee;
-  opacity: 0.7;
-}
-
-.slick-dots li.slick-active button::before {
-  color: black;
-  color: pink;
-  opacity: 1;
-} */
-
 .slick-slide {
   padding: 8px;
 }
-/* 
-.slides .slick-prev,
-.slides .slick-next {
-  z-index: 100;
-  position: absolute;
-  height: 90%;
-} */
 
 .slick-slider.slick-initialized {
   position: relative;
@@ -78,7 +54,7 @@ body {
   background-color: transparent;
   transition: opacity 300ms ease-in;
   font-size: 3rem;
-  /* opacity: 0; */
+  opacity: 0;
 }
 
 .slick-arrow.slick-prev {
