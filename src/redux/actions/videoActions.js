@@ -17,7 +17,7 @@ export const getUpcomingVideos = () => async dispatch => {
 
   dispatch({
     type: GET_UPCOMING_VIDEOS,
-    payload: response.data.results.filter((result, index) => index < 12)
+    payload: response.data.results.filter((result, index) => index < 13)
   });
 };
 
