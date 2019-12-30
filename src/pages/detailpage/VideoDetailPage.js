@@ -20,6 +20,13 @@ const VideoDetailPage = props => {
     //eslint-disable-next-line
   }, [match.params.videoid, getSingleVideo]);
 
+  const convertMinsToHours = num => {
+    const minutes = num % 60;
+    const hours = (num - minutes) / 60;
+
+    return `${hours}h ${minutes}m`;
+  };
+
   return (
     <div className='video-detail-container'>
       {singleVideo !== null && (
@@ -33,12 +40,42 @@ const VideoDetailPage = props => {
           <div className='video-detail-content'>
             <h1 className='video-detail-title'>{singleVideo.title}</h1>
             <div className='video-detail-actions'>
-              <Link to='/watch/:id' className='video-detail-play-btn'>
-                <i className='fas fa-play' /> PLAY
-              </Link>
-              <Link to='/watchlater/:id' className='video-detail-play-btn'>
-                <i className='fas fa-plus-circle' />
-              </Link>
+              <div className='video-detail-play-btn'>
+                <Link to='/watch/:id'>
+                  <i className='fas fa-play ' /> <span> PLAY </span>
+                </Link>
+              </div>
+              <div className='video-detail-watch-later-btn'>
+                <Link to='/watchlater/:id'>
+                  <i className='fas fa-plus-circle fa-2x' />
+                </Link>
+              </div>
+            </div>
+            <div className='video-detail-info'>
+              <div className='video-detail-type'>
+                <span className='video-detail-runtime'>
+                  {singleVideo.release_date.split('-')[0]}
+                </span>
+                <span className='video-detail-runtime'>
+                  &#8226; {convertMinsToHours(singleVideo.runtime)}
+                </span>
+                <span className='video-detail-genres'>
+                  &#8226;{' '}
+                  {singleVideo.genres.map((genre, index) => (
+                    <span
+                      className='video-detail-genre'
+                      key={genre.id}
+                      id={genre.id}>
+                      {genre.name}
+                      {index < singleVideo.genres.length - 1 ? ',\u00A0' : ''}
+                    </span>
+                  ))}
+                </span>
+              </div>
+            </div>
+            <div className='video-detail-overview'>
+              <h4 className='video-detail-overview-title'>Overview Story</h4>
+              {singleVideo.overview}
             </div>
           </div>
         </>

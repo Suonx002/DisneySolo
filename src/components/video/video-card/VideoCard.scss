@@ -15,11 +15,13 @@
   .video-grid-title,
   .video-header-title {
     position: absolute;
-    padding: 0;
     cursor: pointer;
     color: #fff;
     z-index: 5;
-    text-shadow: white 0px 0px 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
   }
 
   .video-header-title {
@@ -78,6 +80,16 @@
 
     .video-header-title {
       bottom: 90px;
+      font-size: 2.3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .video-card {
+    .video-header-title {
+      font-size: 1.8rem;
+      bottom: 130px;
     }
   }
 }
