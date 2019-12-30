@@ -68,6 +68,9 @@
     .video-header-title {
       bottom: 90px;
     }
+    &.video-header {
+      height: 366px;
+    }
   }
 }
 
@@ -83,6 +86,23 @@
       bottom: 90px;
       font-size: 2.3rem;
     }
+
+    &.video-header {
+      height: 300px;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .video-card {
+    .video-header-title {
+      font-size: 1.8rem;
+      bottom: 130px;
+    }
+
+    &.video-header {
+      height: 250px;
+    }
   }
 }
 
@@ -91,6 +111,10 @@
     .video-header-title {
       font-size: 1.8rem;
       bottom: 130px;
+    }
+
+    &.video-header {
+      height: 200px;
     }
   }
 }

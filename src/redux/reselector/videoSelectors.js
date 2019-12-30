@@ -32,6 +32,11 @@ export const selectVideoPlayerItem = createSelector(
   video => video.videoPlayer
 );
 
+export const selectSimilarVideoItem = createSelector(
+  [selectVideo],
+  video => video.similarVideo
+);
+
 export const selectVideeoErrorItem = createSelector(
   [selectVideo],
   video => video.videoError

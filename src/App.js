@@ -7,7 +7,6 @@ import VideoPlayer from './components/video/video-player/VideoPlayer';
 import ErrorPage from './pages/errorpage/ErrorPage';
 
 import Navbar from './components/header/Navbar';
-import Footer from './components/footer/Footer';
 
 import './App.css';
 
@@ -21,7 +20,6 @@ function App() {
         <Route exact path='/watch/:videoid' component={VideoPlayer} />
         <Route exact path='/error' component={ErrorPage} />
       </Switch>
-      <Footer />
     </div>
   );
 }

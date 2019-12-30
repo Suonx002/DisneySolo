@@ -51,8 +51,10 @@ const VideoPlayer = props => {
             </Link>
           </div>
           <iframe
-            src={`${youtubeEmbed}/${videoPlayer.key}`}
+            src={`${youtubeEmbed}/${videoPlayer.key}?rel=0&autoplay=1&mute=1`}
+            allow='autoplay'
             frameBorder='0'
+            allowFullScreen='allowFull'
             title={videoPlayer.name}
           />
         </>

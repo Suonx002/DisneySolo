@@ -17,6 +17,7 @@ import {
 import VideoHeaderSlideShow from '../../components/video/video-header-slideshow/VideoHeaderSlideShow';
 import VideoCategory from '../../components/video/video-category/VideoCategory';
 import VideoGrid from '../../components/video/video-grid/VideoGrid';
+import Footer from '../../components/footer/Footer';
 
 import './HomePage.scss';
 
@@ -55,6 +56,7 @@ const HomePage = props => {
         <VideoGrid title='Most Popular' videos={popularVideos} />
         <VideoGrid title='Top Rated' videos={topRatedVideos} />
       </div>
+      <Footer />
     </>
   );
 };

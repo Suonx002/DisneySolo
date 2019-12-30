@@ -6,6 +6,7 @@ import {
   GET_TOP_RATED_VIDEOS,
   GET_SINGLE_VIDEO,
   GET_VIDEO_PLAYER,
+  GET_SIMILAR_VIDEOS,
   GET_ERROR_VIDEO,
   CLEAR_VIDEO_ERROR
 } from './types';
@@ -100,7 +101,7 @@ export const getVideoPlayer = id => async dispatch => {
       }
     );
 
-    console.log(response);
+    // console.log(response);
 
     dispatch({
       type: GET_VIDEO_PLAYER,
@@ -111,6 +112,26 @@ export const getVideoPlayer = id => async dispatch => {
       type: GET_ERROR_VIDEO,
       payload: err.message
     });
+  }
+};
+
+export const getSimilarVideos = id => async dispatch => {
+  try {
+    const response = await axios(
+      `https://api.themoviedb.org/3/movie/${id}/similar`,
+      {
+        params: {
+          api_key: MOVIE_KEY
+        }
+      }
+    );
+
+    dispatch({
+      type: GET_SIMILAR_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.log(err);
   }
 };
 

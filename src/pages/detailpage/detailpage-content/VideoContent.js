@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { selectSingleVideoItem } from '../../../redux/reselector/videoSelectors';
 import { getSingleVideo } from '../../../redux/actions/videoActions';
 
+import VideoSuggestion from '../../../components/video/video-suggestion/VideoSuggestion';
+
 import './VideoContent.scss';
 
 const VideoContent = props => {
@@ -28,59 +30,62 @@ const VideoContent = props => {
   };
 
   return (
-    <div className='video-content-container'>
-      {singleVideo !== null && (
-        <>
-          <div className='video-content-image'>
-            <img
-              src={`${originalUrl}${singleVideo.poster_path}`}
-              alt={`${singleVideo.title}`}
-            />
-          </div>
-          <div className='video-content-content'>
-            <h1 className='video-content-title'>{singleVideo.title}</h1>
-            <div className='video-content-actions'>
-              <div className='video-content-play-btn'>
-                <Link to={`/watch/${singleVideo.id}`}>
-                  <i className='fas fa-play ' /> <span> PLAY </span>
-                </Link>
+    <>
+      <div className='video-content-container'>
+        {singleVideo !== null && (
+          <>
+            <div className='video-content-image'>
+              <img
+                src={`${originalUrl}${singleVideo.poster_path}`}
+                alt={`${singleVideo.title}`}
+              />
+            </div>
+            <div className='video-content-content'>
+              <h1 className='video-content-title'>{singleVideo.title}</h1>
+              <div className='video-content-actions'>
+                <div className='video-content-play-btn'>
+                  <Link to={`/watch/${singleVideo.id}`}>
+                    <i className='fas fa-play ' /> <span> PLAY </span>
+                  </Link>
+                </div>
+                <div className='video-content-watch-later-btn'>
+                  <Link to='/watchlater/:id'>
+                    <i className='fas fa-plus-circle fa-2x' />
+                  </Link>
+                </div>
               </div>
-              <div className='video-content-watch-later-btn'>
-                <Link to='/watchlater/:id'>
-                  <i className='fas fa-plus-circle fa-2x' />
-                </Link>
+              <div className='video-content-info'>
+                <div className='video-content-type'>
+                  <span className='video-content-runtime'>
+                    {singleVideo.release_date.split('-')[0]}
+                  </span>
+                  <span className='video-content-runtime'>
+                    &#8226; {convertMinsToHours(singleVideo.runtime)}
+                  </span>
+                  <span className='video-content-genres'>
+                    &#8226;{' '}
+                    {singleVideo.genres.map((genre, index) => (
+                      <span
+                        className='video-content-genre'
+                        key={genre.id}
+                        id={genre.id}>
+                        {genre.name}
+                        {index < singleVideo.genres.length - 1 ? ',\u00A0' : ''}
+                      </span>
+                    ))}
+                  </span>
+                </div>
+              </div>
+              <div className='video-content-overview'>
+                <h4 className='video-content-overview-title'>Overview Story</h4>
+                {singleVideo.overview}
               </div>
             </div>
-            <div className='video-content-info'>
-              <div className='video-content-type'>
-                <span className='video-content-runtime'>
-                  {singleVideo.release_date.split('-')[0]}
-                </span>
-                <span className='video-content-runtime'>
-                  &#8226; {convertMinsToHours(singleVideo.runtime)}
-                </span>
-                <span className='video-content-genres'>
-                  &#8226;{' '}
-                  {singleVideo.genres.map((genre, index) => (
-                    <span
-                      className='video-content-genre'
-                      key={genre.id}
-                      id={genre.id}>
-                      {genre.name}
-                      {index < singleVideo.genres.length - 1 ? ',\u00A0' : ''}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </div>
-            <div className='video-content-overview'>
-              <h4 className='video-content-overview-title'>Overview Story</h4>
-              {singleVideo.overview}
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+          </>
+        )}
+      </div>
+      <VideoSuggestion />
+    </>
   );
 };
 
