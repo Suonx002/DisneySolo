@@ -26,3 +26,13 @@ export const selectSingleVideoItem = createSelector(
   [selectVideo],
   video => video.singleVideo
 );
+
+export const selectVideoPlayerItem = createSelector(
+  [selectVideo],
+  video => video.videoPlayer
+);
+
+export const selectVideeoErrorItem = createSelector(
+  [selectVideo],
+  video => video.videoError
+);

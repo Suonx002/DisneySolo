@@ -4,8 +4,10 @@ import {
   GET_POPULAR_VIDEOS,
   GET_NOW_PLAYING_VIDEOS,
   GET_TOP_RATED_VIDEOS,
-  GET_A_SINGLE_VIDEO,
-  GET_SINGLE_VIDEO
+  GET_SINGLE_VIDEO,
+  GET_VIDEO_PLAYER,
+  GET_ERROR_VIDEO,
+  CLEAR_VIDEO_ERROR
 } from './types';
 
 let MOVIE_KEY;
@@ -85,4 +87,35 @@ export const getSingleVideo = id => async dispatch => {
     type: GET_SINGLE_VIDEO,
     payload: response.data
   });
+};
+
+export const getVideoPlayer = id => async dispatch => {
+  try {
+    const response = await axios(
+      `https://api.themoviedb.org/3/movie/${id}/videos`,
+      {
+        params: {
+          api_key: MOVIE_KEY
+        }
+      }
+    );
+
+    console.log(response);
+
+    dispatch({
+      type: GET_VIDEO_PLAYER,
+      payload: response.data.results[0]
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_ERROR_VIDEO,
+      payload: err.message
+    });
+  }
+};
+
+export const clearError = () => {
+  return {
+    type: CLEAR_VIDEO_ERROR
+  };
 };

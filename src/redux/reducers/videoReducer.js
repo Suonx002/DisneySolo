@@ -3,7 +3,10 @@ import {
   GET_POPULAR_VIDEOS,
   GET_NOW_PLAYING_VIDEOS,
   GET_TOP_RATED_VIDEOS,
-  GET_SINGLE_VIDEO
+  GET_SINGLE_VIDEO,
+  GET_VIDEO_PLAYER,
+  CLEAR_VIDEO_ERROR,
+  GET_ERROR_VIDEO
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -11,7 +14,9 @@ const INITIAL_STATE = {
   popularVideo: null,
   nowPlayingVideo: null,
   topRatedVideo: null,
-  singleVideo: null
+  singleVideo: null,
+  videoPlayer: null,
+  videoError: null
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -41,7 +46,21 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         singleVideo: action.payload
       };
-
+    case GET_VIDEO_PLAYER:
+      return {
+        ...state,
+        videoPlayer: action.payload
+      };
+    case GET_ERROR_VIDEO:
+      return {
+        ...state,
+        videoError: action.payload
+      };
+    case CLEAR_VIDEO_ERROR:
+      return {
+        ...state,
+        videoError: null
+      };
     default:
       return state;
   }

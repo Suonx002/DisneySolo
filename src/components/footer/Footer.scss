@@ -1,0 +1,31 @@
+.footer {
+  &-container {
+    border-top: 1px solid #202020;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // border-radius: 5px;
+    height: 7vh;
+    padding: 1rem;
+    // margin: 1rem 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-create-by,
+  &-source-code {
+    font-size: 2rem;
+  }
+
+  &-source-code {
+    a {
+      text-decoration: none;
+      color: #fff;
+      margin-left: 1rem;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+}
