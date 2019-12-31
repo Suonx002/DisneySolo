@@ -13,7 +13,7 @@ import {
 
 import config from '../../config';
 
-const MOVIE_KEY = config.MOVIE_KEY;
+const MOVIE_KEY = process.env.MOVIE_KEY || config.MOVIE_KEY;
 
 // if (process.env.NODE_ENV === 'production') {
 //   MOVIE_KEY = process.env.MOVIE_KEY;
