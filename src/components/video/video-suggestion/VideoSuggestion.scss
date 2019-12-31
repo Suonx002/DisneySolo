@@ -2,7 +2,10 @@
   height: 20vh;
   // background-color: rgba(0, 0, 0, 0.2);
 
-  .video-grid-title {
-    margin-top: 0;
+  &-content {
+    .video-grid-title {
+      margin-top: 0;
+      // background-color: black;
+    }
   }
 }

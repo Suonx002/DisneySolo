@@ -84,7 +84,7 @@ const VideoContent = props => {
           </>
         )}
       </div>
-      <VideoSuggestion />
+      <VideoSuggestion videoid={match.params.videoid} />
     </>
   );
 };

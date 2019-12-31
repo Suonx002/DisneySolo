@@ -8,14 +8,13 @@ import { selectSimilarVideoItem } from '../../../redux/reselector/videoSelectors
 
 import './VideoSuggestion.scss';
 
-import VideoCard from '../video-card/VideoCard';
 import VideoGrid from '../video-grid/VideoGrid';
 
 const VideoSuggestion = props => {
-  const { getSimilarVideo, similarVideo } = props;
+  const { videoid, getSimilarVideo, similarVideo } = props;
 
   useEffect(() => {
-    getSimilarVideo(330457);
+    getSimilarVideo(videoid);
     //eslint-disable-next-line
   }, []);
 
@@ -24,16 +23,19 @@ const VideoSuggestion = props => {
   }
   return (
     <div className='video-suggestion'>
-      <div className='video-suggestion-content'>
-        <VideoGrid title='Similar Videos' videos={similarVideo} />
-      </div>
+      {similarVideo !== null && similarVideo.length > 0 && (
+        <div className='video-suggestion-content'>
+          <VideoGrid title='Suggestion' videos={similarVideo} />
+        </div>
+      )}
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  console.log(ownProps);
   return {
-    getSimilarVideo: () => dispatch(getSimilarVideos(330457))
+    getSimilarVideo: () => dispatch(getSimilarVideos(ownProps.videoid))
   };
 };
 

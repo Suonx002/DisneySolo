@@ -11,13 +11,15 @@ import {
   CLEAR_VIDEO_ERROR
 } from './types';
 
-let MOVIE_KEY;
+import config from '../../config';
 
-if (process.env.NODE_ENV === 'production') {
-  MOVIE_KEY = process.env.MOVIE_KEY;
-} else {
-  MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
-}
+const MOVIE_KEY = config.MOVIE_KEY;
+
+// if (process.env.NODE_ENV === 'production') {
+//   MOVIE_KEY = process.env.MOVIE_KEY;
+// } else {
+//   MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
+// }
 
 export const getUpcomingVideos = () => async dispatch => {
   const response = await axios('https://api.themoviedb.org/3/movie/upcoming', {
