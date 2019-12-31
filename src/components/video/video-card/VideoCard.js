@@ -11,12 +11,14 @@ const VideoCard = props => {
     : 'https://image.tmdb.org/t/p/w342';
 
   return (
-    <div className={`video-card ${videoHeader ? 'video-header' : null}`}>
-      {props.videoHeader ? (
-        <h2 className='video-header-title'>{title}</h2>
-      ) : null}
-
-      {props.gridHeader ? <h4 className='video-grid-title'>{title}</h4> : null}
+    <div className={`video-card ${videoHeader ? 'video-header' : ''}`}>
+      {props.videoHeader ? <h2 className='video-header-title'>{title}</h2> : ''}
+      {props.gridHeader ? <h4 className='video-grid-title'>{title}</h4> : ''}
+      {props.gridContainerTitle ? (
+        <h4 className='video-grid-container-title'>{title}</h4>
+      ) : (
+        ''
+      )}
       <Link to={`/video/${id}`}>
         <img
           src={`${originalUrl}${imageUrl}`}

@@ -55,8 +55,8 @@ const HomePage = props => {
         <VideoGrid title='Now Playing' videos={nowPlayingVideos} />
         <VideoGrid title='Most Popular' videos={popularVideos} />
         <VideoGrid title='Top Rated' videos={topRatedVideos} />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

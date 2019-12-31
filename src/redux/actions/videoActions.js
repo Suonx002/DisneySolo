@@ -7,6 +7,7 @@ import {
   GET_SINGLE_VIDEO,
   GET_VIDEO_PLAYER,
   GET_SIMILAR_VIDEOS,
+  GET_RECOMMENDATION_VIDEOS,
   GET_ERROR_VIDEO,
   CLEAR_VIDEO_ERROR
 } from './types';
@@ -130,6 +131,26 @@ export const getSimilarVideos = id => async dispatch => {
 
     dispatch({
       type: GET_SIMILAR_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getRecommendationVideos = id => async dispatch => {
+  try {
+    const response = await axios(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations`,
+      {
+        params: {
+          api_key: MOVIE_KEY
+        }
+      }
+    );
+
+    dispatch({
+      type: GET_RECOMMENDATION_VIDEOS,
       payload: response.data.results
     });
   } catch (err) {

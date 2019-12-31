@@ -13,7 +13,7 @@ const Navbar = () => {
             <i className='fas fa-home' />{' '}
             <span className='underline'>Home </span>
           </Link>
-          <Link to='/' className='navbar-item'>
+          <Link to='/search' className='navbar-item'>
             <i className='fas fa-search' />{' '}
             <span className='underline'>Search </span>
           </Link>

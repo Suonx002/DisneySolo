@@ -14,30 +14,27 @@
   }
 
   .video-grid-title,
-  .video-header-title {
+  .video-header-title,
+  .video-grid-container-title {
     position: absolute;
     cursor: pointer;
-    color: #fff;
     z-index: 5;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 0.5rem;
-    border-radius: 5px;
+    left: 20px;
+    bottom: 20px;
     text-align: center;
   }
 
   .video-header-title {
-    left: 50px;
-    bottom: 30px;
-    // margin-left: 1rem;
     font-size: 3rem;
   }
 
   .video-grid-title {
     display: inline-block;
     font-size: 1.1rem;
+  }
 
-    bottom: 20px;
-    left: 48px;
+  .video-grid-container-title {
+    position: absolute;
   }
 
   &:hover {
@@ -61,13 +58,7 @@
 @media screen and (max-width: 1500px) {
   .video-card {
     height: 142px;
-    .video-grid-title {
-      left: 31px;
-    }
 
-    .video-header-title {
-      bottom: 90px;
-    }
     &.video-header {
       height: 366px;
     }
@@ -77,15 +68,6 @@
 @media screen and (max-width: 1100px) {
   .video-card {
     height: 135px;
-    .video-grid-title {
-      left: 31px;
-      bottom: 8px;
-    }
-
-    .video-header-title {
-      bottom: 90px;
-      font-size: 2.3rem;
-    }
 
     &.video-header {
       height: 300px;
@@ -95,11 +77,6 @@
 
 @media screen and (max-width: 800px) {
   .video-card {
-    .video-header-title {
-      font-size: 1.8rem;
-      bottom: 130px;
-    }
-
     &.video-header {
       height: 250px;
     }
@@ -108,51 +85,8 @@
 
 @media screen and (max-width: 600px) {
   .video-card {
-    .video-header-title {
-      font-size: 1.8rem;
-      bottom: 130px;
-    }
-
     &.video-header {
       height: 200px;
     }
   }
 }
-
-// @media screen and (min-width: 1000px) {
-//   .video-card {
-//     height: 275px;
-//   }
-// }
-
-// @media screen and (min-width: 1250px) {
-//   .video-card {
-//     height: 300px;
-//   }
-// }
-
-// @media screen and (min-width: 1500px) {
-//   .video-card {
-//     height: 325px;
-
-//     .video-header-title {
-//       font-size: 4rem;
-//     }
-
-//     .video-grid-title {
-//       font-size: 1.3rem;
-//       bottom: 15px;
-//     }
-//   }
-// }
-
-// @media screen and (max-width: 500px) {
-//   .video-card {
-//     width: 190px;
-//     height: 106px;
-//     &.video-header {
-//       width: 400px;
-//       height: 150px;
-//     }
-//   }
-// }

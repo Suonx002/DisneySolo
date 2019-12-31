@@ -41,3 +41,8 @@ export const selectVideeoErrorItem = createSelector(
   [selectVideo],
   video => video.videoError
 );
+
+export const selectRecommendVideoItem = createSelector(
+  [selectVideo],
+  video => video.recommendVideo
+);

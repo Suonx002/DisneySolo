@@ -7,7 +7,8 @@ import {
   GET_VIDEO_PLAYER,
   CLEAR_VIDEO_ERROR,
   GET_ERROR_VIDEO,
-  GET_SIMILAR_VIDEOS
+  GET_SIMILAR_VIDEOS,
+  GET_RECOMMENDATION_VIDEOS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -18,6 +19,7 @@ const INITIAL_STATE = {
   singleVideo: null,
   videoPlayer: null,
   similarVideo: null,
+  recommendVideo: null,
   videoError: null
 };
 
@@ -62,6 +64,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         videoError: action.payload
+      };
+    case GET_RECOMMENDATION_VIDEOS:
+      return {
+        ...state,
+        recommendVideo: action.payload
       };
     case CLEAR_VIDEO_ERROR:
       return {

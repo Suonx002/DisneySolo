@@ -23,7 +23,6 @@ body {
   height: 100vh;
   font-family: Nunito, sans-serif;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .slick-slide {

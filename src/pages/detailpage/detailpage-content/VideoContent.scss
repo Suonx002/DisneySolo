@@ -23,7 +23,9 @@
     top: 30%;
     left: 91px;
     z-index: 1;
-    width: 670px;
+    max-width: 670px;
+    max-height: 520px;
+    overflow: hidden;
     border-radius: 5px;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.5);
