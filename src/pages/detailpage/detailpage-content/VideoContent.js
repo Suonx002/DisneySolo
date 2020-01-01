@@ -32,7 +32,7 @@ const VideoContent = props => {
   return (
     <>
       <div className='video-content-container'>
-        {singleVideo !== null && (
+        {singleVideo !== null && singleVideo !== undefined && (
           <>
             <div className='video-content-image'>
               <img
