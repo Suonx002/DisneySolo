@@ -23,11 +23,13 @@ const VideoSuggestion = props => {
   }
   return (
     <div className='video-suggestion'>
-      {similarVideo !== null && similarVideo.length > 0 && (
-        <div className='video-suggestion-content'>
-          <VideoGrid title='Suggestion' videos={similarVideo} />
-        </div>
-      )}
+      {similarVideo !== null &&
+        similarVideo !== undefined &&
+        similarVideo.length > 0 && (
+          <div className='video-suggestion-content'>
+            <VideoGrid title='Suggestion' videos={similarVideo} />
+          </div>
+        )}
     </div>
   );
 };
