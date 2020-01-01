@@ -48,11 +48,11 @@ const VideoContent = props => {
                     <i className='fas fa-play ' /> <span> PLAY </span>
                   </Link>
                 </div>
-                <div className='video-content-watch-later-btn'>
+                {/* <div className='video-content-watch-later-btn'>
                   <Link to='/watchlater/:id'>
                     <i className='fas fa-plus-circle fa-2x' />
                   </Link>
-                </div>
+                </div> */}
               </div>
               <div className='video-content-info'>
                 <div className='video-content-type'>
