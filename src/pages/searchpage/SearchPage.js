@@ -30,7 +30,7 @@ const SearchPage = props => {
 
   useEffect(() => {
     //render videos recommmendation to frozen II
-    if (searchInput === '' || fetchVideo === null) {
+    if (searchInput === '' || fetchVideo === null || fetchVideo === undefined) {
       getRecommendationVideo(330457);
     }
 
@@ -42,7 +42,8 @@ const SearchPage = props => {
   const onSubmit = e => {
     e.preventDefault();
     clearFetchVideos();
-    clearRecommendationVideos();
+    clearRecommendationVideo();
+
     getFetchVideo(searchInput);
   };
 
@@ -58,7 +59,7 @@ const SearchPage = props => {
         />
       </form>
       <div className='search-page-content'>
-        {fetchVideo === null ? (
+        {fetchVideo === null || fetchVideo === undefined ? (
           <h3 className='search-page-explore'>Explore</h3>
         ) : (
           ''

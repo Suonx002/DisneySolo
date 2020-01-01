@@ -19,81 +19,101 @@ import config from '../../config';
 
 const MOVIE_KEY = process.env.MOVIE_KEY || config.MOVIE_KEY;
 
-// if (process.env.NODE_ENV === 'production') {
-//   MOVIE_KEY = process.env.MOVIE_KEY;
-// } else {
-//   MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
-// }
-
 export const getUpcomingVideos = () => async dispatch => {
-  const response = await axios('https://api.themoviedb.org/3/movie/upcoming', {
-    params: {
-      api_key: MOVIE_KEY
-    }
-  });
+  try {
+    const response = await axios(
+      'https://api.themoviedb.org/3/movie/upcoming',
+      {
+        params: {
+          api_key: MOVIE_KEY
+        }
+      }
+    );
 
-  dispatch({
-    type: GET_UPCOMING_VIDEOS,
-    payload: response.data.results.filter((result, index) => index < 12)
-  });
+    dispatch({
+      type: GET_UPCOMING_VIDEOS,
+      payload: response.data.results.filter((result, index) => index < 12)
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const getPopularVideos = () => async dispatch => {
-  const response = await axios('https://api.themoviedb.org/3/movie/popular', {
-    params: {
-      api_key: MOVIE_KEY,
-      page: 2
-    }
-  });
-  // console.log(response);
+  try {
+    const response = await axios('https://api.themoviedb.org/3/movie/popular', {
+      params: {
+        api_key: MOVIE_KEY,
+        page: 2
+      }
+    });
+    // console.log(response);
 
-  dispatch({
-    type: GET_POPULAR_VIDEOS,
-    payload: response.data.results
-  });
+    dispatch({
+      type: GET_POPULAR_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const getNowPlayingVideos = () => async dispatch => {
-  const response = await axios(
-    'https://api.themoviedb.org/3/movie/now_playing',
-    {
-      params: {
-        api_key: MOVIE_KEY
+  try {
+    const response = await axios(
+      'https://api.themoviedb.org/3/movie/now_playing',
+      {
+        params: {
+          api_key: MOVIE_KEY
+        }
       }
-    }
-  );
+    );
 
-  dispatch({
-    type: GET_NOW_PLAYING_VIDEOS,
-    payload: response.data.results
-  });
+    dispatch({
+      type: GET_NOW_PLAYING_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const getTopRatedVideos = () => async dispatch => {
-  const response = await axios('https://api.themoviedb.org/3/movie/top_rated', {
-    params: {
-      api_key: MOVIE_KEY,
-      page: 5
-    }
-  });
+  try {
+    const response = await axios(
+      'https://api.themoviedb.org/3/movie/top_rated',
+      {
+        params: {
+          api_key: MOVIE_KEY,
+          page: 5
+        }
+      }
+    );
 
-  dispatch({
-    type: GET_TOP_RATED_VIDEOS,
-    payload: response.data.results
-  });
+    dispatch({
+      type: GET_TOP_RATED_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const getSingleVideo = id => async dispatch => {
-  const response = await axios(`https://api.themoviedb.org/3/movie/${id}`, {
-    params: {
-      api_key: MOVIE_KEY
-    }
-  });
+  try {
+    const response = await axios(`https://api.themoviedb.org/3/movie/${id}`, {
+      params: {
+        api_key: MOVIE_KEY
+      }
+    });
 
-  dispatch({
-    type: GET_SINGLE_VIDEO,
-    payload: response.data
-  });
+    dispatch({
+      type: GET_SINGLE_VIDEO,
+      payload: response.data
+    });
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 export const getVideoPlayer = id => async dispatch => {
@@ -137,7 +157,7 @@ export const getSimilarVideos = id => async dispatch => {
       payload: response.data.results
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -157,7 +177,7 @@ export const getRecommendationVideos = id => async dispatch => {
       payload: response.data.results
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -175,7 +195,7 @@ export const fetchVideos = query => async dispatch => {
       payload: response.data.results
     });
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
