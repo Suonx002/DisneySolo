@@ -46,3 +46,8 @@ export const selectRecommendVideoItem = createSelector(
   [selectVideo],
   video => video.recommendVideo
 );
+
+export const selectFetchVideoItem = createSelector(
+  [selectVideo],
+  video => video.fetchVideo
+);

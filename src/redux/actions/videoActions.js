@@ -9,6 +9,9 @@ import {
   GET_SIMILAR_VIDEOS,
   GET_RECOMMENDATION_VIDEOS,
   GET_ERROR_VIDEO,
+  FETCH_VIDEOS,
+  CLEAR_FETCH_VIDEOS,
+  CLEAR_RECOMMENDATION_VIDEOS,
   CLEAR_VIDEO_ERROR
 } from './types';
 
@@ -156,6 +159,36 @@ export const getRecommendationVideos = id => async dispatch => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const fetchVideos = query => async dispatch => {
+  try {
+    const response = await axios('https://api.themoviedb.org/3/search/movie', {
+      params: {
+        api_key: MOVIE_KEY,
+        query: query
+      }
+    });
+
+    dispatch({
+      type: FETCH_VIDEOS,
+      payload: response.data.results
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const clearRecommendationVideos = () => {
+  return {
+    type: CLEAR_RECOMMENDATION_VIDEOS
+  };
+};
+
+export const clearFetchVideos = () => {
+  return {
+    type: CLEAR_FETCH_VIDEOS
+  };
 };
 
 export const clearError = () => {

@@ -18,14 +18,16 @@
   .video-grid-container-title {
     position: absolute;
     cursor: pointer;
-    z-index: 5;
-    left: 20px;
-    bottom: 20px;
-    text-align: center;
+    z-index: 1;
+    right: 20px;
+    bottom: 10px;
+
+    padding: 0;
   }
 
   .video-header-title {
     font-size: 3rem;
+    bottom: 35px;
   }
 
   .video-grid-title {
@@ -72,6 +74,10 @@
     &.video-header {
       height: 300px;
     }
+
+    .video-header-title {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -79,6 +85,9 @@
   .video-card {
     &.video-header {
       height: 250px;
+    }
+    .video-header-title {
+      font-size: 2rem;
     }
   }
 }

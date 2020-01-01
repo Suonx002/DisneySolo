@@ -8,7 +8,10 @@ import {
   CLEAR_VIDEO_ERROR,
   GET_ERROR_VIDEO,
   GET_SIMILAR_VIDEOS,
-  GET_RECOMMENDATION_VIDEOS
+  GET_RECOMMENDATION_VIDEOS,
+  FETCH_VIDEOS,
+  CLEAR_FETCH_VIDEOS,
+  CLEAR_RECOMMENDATION_VIDEOS
 } from '../actions/types';
 
 const INITIAL_STATE = {
@@ -20,6 +23,7 @@ const INITIAL_STATE = {
   videoPlayer: null,
   similarVideo: null,
   recommendVideo: null,
+  fetchVideo: null,
   videoError: null
 };
 
@@ -70,10 +74,25 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         recommendVideo: action.payload
       };
+    case FETCH_VIDEOS:
+      return {
+        ...state,
+        fetchVideo: action.payload
+      };
+    case CLEAR_FETCH_VIDEOS:
+      return {
+        ...state,
+        fetchVideo: null
+      };
     case CLEAR_VIDEO_ERROR:
       return {
         ...state,
         videoError: null
+      };
+    case CLEAR_RECOMMENDATION_VIDEOS:
+      return {
+        ...state,
+        recommendVideo: null
       };
     default:
       return state;
