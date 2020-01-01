@@ -8,6 +8,11 @@
   }
   &-logo {
     width: 10%;
+
+    a {
+      padding: 0.5rem;
+      text-decoration: none;
+    }
   }
 
   &-content {

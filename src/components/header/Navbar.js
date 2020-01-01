@@ -6,7 +6,11 @@ import './Navbar.scss';
 const Navbar = () => {
   return (
     <div className='navbar-header'>
-      <div className='navbar-logo'>Disney Solo</div>
+      <div className='navbar-logo'>
+        <Link to='/' className='navbar-item'>
+          Disney Solo
+        </Link>
+      </div>
       <div className='navbar-content'>
         <div className='navbar-pages'>
           <Link to='/' className='navbar-item'>
@@ -17,7 +21,7 @@ const Navbar = () => {
             <i className='fas fa-search' />{' '}
             <span className='underline'>Search </span>
           </Link>
-          <Link to='/' className='navbar-item'>
+          {/* <Link to='/' className='navbar-item'>
             <i className='fas fa-plus' />{' '}
             <span className='underline'>Watchlist </span>
           </Link>
@@ -32,7 +36,7 @@ const Navbar = () => {
           <Link to='/' className='navbar-item'>
             <i className='fas fa-video' />{' '}
             <span className='underline'>Series </span>
-          </Link>
+          </Link> */}
           {/* <div className='navbar-item'>
 
             <i className='fas fa-home' /> Home
@@ -53,7 +57,7 @@ const Navbar = () => {
             <i className='fas fa-video' /> Series
           </div> */}
         </div>
-        <div className='navbar-account'>Profile</div>
+        {/* <div className='navbar-account'>Profile</div> */}
       </div>
     </div>
   );
