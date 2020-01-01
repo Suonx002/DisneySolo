@@ -63,11 +63,13 @@ const SearchPage = props => {
         ) : (
           ''
         )}
-        {fetchVideo !== null && fetchVideo.length === 0 && (
-          <h3 className='search-page-error'>
-            No Results found, please try a different search.
-          </h3>
-        )}
+        {fetchVideo !== null &&
+          fetchVideo !== undefined &&
+          fetchVideo.length === 0 && (
+            <h3 className='search-page-error'>
+              No Results found, please try a different search.
+            </h3>
+          )}
 
         <div className='search-page-grid-container'>
           {recommendVideo !== null &&
