@@ -15,9 +15,13 @@ import {
   CLEAR_VIDEO_ERROR
 } from './types';
 
-import config from '../../config';
+let MOVIE_KEY;
 
-const MOVIE_KEY = process.env.MOVIE_KEY || config.MOVIE_KEY;
+if (process.env.NODE_ENV !== 'production') {
+  MOVIE_KEY = process.env.REACT_APP_MOVIE_KEY;
+} else {
+  MOVIE_KEY = process.env.MOVIE_KEY;
+}
 
 export const getUpcomingVideos = () => async dispatch => {
   try {
