@@ -1,13 +1,18 @@
 .navbar {
+  position: relative;
   &-header {
     display: flex;
     align-items: center;
-    height: 7vh;
+    justify-content: space-between !important;
+    height: 100px;
     width: 100%;
     color: #f9f9f9;
+    padding: 1rem;
+    overflow: hidden;
   }
+
   &-logo {
-    width: 10%;
+    // width: 20%;
 
     a {
       padding: 0.5rem;
@@ -16,7 +21,7 @@
   }
 
   &-content {
-    width: 90%;
+    // width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
