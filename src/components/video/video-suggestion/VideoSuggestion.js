@@ -35,7 +35,7 @@ const VideoSuggestion = props => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  console.log(ownProps);
+  // console.log(ownProps);
   return {
     getSimilarVideo: () => dispatch(getSimilarVideos(ownProps.videoid))
   };

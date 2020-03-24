@@ -23,6 +23,8 @@ if (process.env.NODE_ENV !== 'production') {
   MOVIE_KEY = process.env.MOVIE_KEY;
 }
 
+console.log(MOVIE_KEY);
+
 export const getUpcomingVideos = () => async dispatch => {
   try {
     const response = await axios(

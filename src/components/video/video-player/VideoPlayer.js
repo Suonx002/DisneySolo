@@ -25,12 +25,12 @@ const VideoPlayer = props => {
   } = props;
   const youtubeEmbed = 'http://youtube.com/embed';
 
-  console.log(props);
+  // console.log(props);
   useEffect(() => {
     getVideoPlayer(match.params.videoid);
 
     if (videoError !== null) {
-      console.log('inside error');
+      // console.log('inside error');
 
       setTimeout(() => {
         clearError();
